@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All of the biscuits</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <style type="text/css">
+   #nasa_noodle_a, #nasa_noodle_b,
+    #nasa_noodle_c,#nasa_noodle_d {
+      width: 300px;
+      height: 400px;
+    }
+.body{
+    background-color: darkgray;
+}
+h3 {
+    font-family:'Times New Roman', Times, serif;
+    font-size: 50px;
+    color:black;
+}
+  </style>
+</head>
+<div class="jumbotron">
+<h3 class="text-center">NASA is hiding <span id="Main_Number"></span> Biscuits!</h3>
+</div>
+  <!-- Note that this div is now emty. We will fill it dynamically -->
+  <!--personalize once code is complete with whatever object doesn't have to be a crystal ya feel-->
+   <div class="text-center" id="Biscuits">
+        <img id="nasa_noodle_a" src="assets/images/27DB7ED6-2F77-4200-9C03-ABBF249EFA3B.jpg" class="img-thumbnail" alt="nasa_noodle">
+        <img id="nasa_noodle_b" src="assets/images/IMG_5737.jpg" class="img-thumbnail" alt="nasa_noodle_01">
+        <img id="nasa_noodle_c" src="assets/images/IMG_3561.jpg" class="img-thumbnail" alt="nasa_noodle_02">
+        <img id="nasa_noodle_d" src="assets/images/IMG_3481.jpg" class="img-thumbnail" alt="nasa_noodle_03">
+  </div>
+<body class='body'>
+
+<!-- Here we added a link to the jQuery library -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Below JavaScript code will go -->
+<script type="text/javascript">
+$(document).ready(function(){
+//JQuery isn't scary Kase.
+//you need a main number to start this will act as a target for player //why 70? cause I felt like it 
+let mainNumber = Math.floor(Math.random()* 70) + 1; 
+
+for (let i=0; i <= mainNumber;i++) {
+   $(document).text(mainNumber[i]);
+};
+
+$('#Main_Number').text(mainNumber);
+//displaying the mainNumber looks like this 
+
+//need a number to count off of as well ref class example --> 
+
+//once you have a mainNumber you need to create a way to have multiple objects with different values that add together when clicked 
+//you can do an array of numbers which will assist in creating a for loop of options 
+//let biscuitOptions = [10,9,5,2];
+
+//for(let i=0; i< biscuitOptions.length; i++);
+
+//create an on-click event that responds to button clicks of the crystal image. //Can I make the below code simple
+let biscuitCount = 0; 
+
+$('#nasa_noodle_a').on('click', function() {
+    biscuitCount +=5;
+    alert('You gave NASA' + ' ' + biscuitCount + ' ' + 'biscuits!');
+    result(biscountCount);
+// if (biscuitCount === mainNumber) {
+//     alert("You Win!");
+// }
+// else if(biscuitCount >= mainNumber) {
+//     alert("That's ruff, You lose!")
+// };
+});
+$('#nasa_noodle_b').on('click', function() {
+    biscuitCount +=10;
+    alert('You gave NASA' + ' ' + biscuitCount + ' ' + 'biscuits!');
+    result(biscuitCount);
+// if (biscuitCount === mainNumber) {
+//     alert("You Win!");
+// }
+// else if(biscuitCount >= mainNumber) {
+//     alert("That's ruff, You lose!")
+// };
+});
+$('#nasa_noodle_c').on('click', function() {
+    biscuitCount +=3;
+    alert('You gave NASA' + ' ' + biscuitCount + ' ' + 'biscuits!');
+// if (biscuitCount === mainNumber) {
+//     alert("You Win!");
+// }
+// else if(biscuitCount >= mainNumber) {
+//     alert("That's ruff, You lose!")
+// };
+});
+$('#nasa_noodle_d').on('click', function() {
+    biscuitCount +=2;
+    alert('You gave NASA' + ' ' + biscuitCount + ' ' + 'biscuits!');
+
+});
+
+function result(value) {
+if (biscuitCount === mainNumber) {
+    alert("You Win!");
+}
+else if(biscuitCount >= mainNumber) {
+    alert("That's ruff, You lose!")
+};
+}
+
+
+});
+</script>
+</body>
+</html>
